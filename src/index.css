@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Blue: #6299CB */
+/* Red: #B64C59 */
+/* Green: #92BFB1 */
+body {
+  background: #DAD6D6;
+  font-family: "Cabin", sans-serf;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ------------------------------------------ STATUS BAR */
+.c-status {
+  font-size: 42px;
+  font-weight: bold;
+  margin: 1em 0;
+  text-align: center;
+}
+
+
+/* ------------------------------------------ BOARD */
+.c-board {
+  border: 20px solid #3A3335;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* ------------------------------------------ BOARD SQUARE */
+.c-square {
+  -webkit-appearance: none;
+  border: none;
+  box-shadow: 0 0 0 10px #3A3335;
+  cursor: pointer;
+  padding-top: 33.333%;
+  position: relative;
+  transition: all .1s ease;
+  width: 33.333%;
+}
+
+.c-square span {
+  font-size: 120px;
+  position: absolute;
+  left: -8px;
+  right: 0;
+  font-weight: bold;
+  top: 0;
+  line-height: 1.25em;
+}
+
+.c-square:focus {
+  outline: none;
+}
+
+.c-square:active {
+  background: #69747C;
+}
+
+
+.c-tabletop {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.c-game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+}
+
+.c-game-info-bar {
+  border-left: 1px solid #3a3335;
+  background: white;
+  padding: 20px;
+  width: 25%;
+}
+
+
+.heading {
+  border-bottom: 1px solid #dad6d6;
+  text-align: center;
+}
