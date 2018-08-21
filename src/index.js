@@ -5,7 +5,7 @@ import './index.css';
 
 function Square(props) {
   return (
-    <button className={"c-square " + props.clicked + " " + props.value } onClick={props.onClick}>
+    <button className={"c-square " + props.clicked + " " + props.value } disabled={props.isDisabled} onClick={props.onClick}>
       <span>{props.value}</span>
     </button>
   );
@@ -18,24 +18,29 @@ class Board extends React.Component {
       squares: Array(9).fill(null),
       xIsNext: true,
       clicked: Array(9).fill('unchecked'),
+      isDisabled: Array(9).fill(false),
     }
   }
 
   handleClick(i) {
     const squares = this.state.squares.slice();
     const clicked = this.state.clicked.slice();
+    const isDisabled = this.state.isDisabled.slice();
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     clicked[i] = this.state.clicked ? 'checked': 'unchecked';
+    isDisabled[i] = true;
     this.setState({
       clicked: clicked,
       squares: squares,
       xIsNext: !this.state.xIsNext,
+      isDisabled: isDisabled,
     });
   }
 
   renderSquare(i) {
     return (
       <Square
+        isDisabled={this.state.isDisabled[i]}
         clicked={this.state.clicked[i]}
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
@@ -55,7 +60,7 @@ class Board extends React.Component {
 
     return (
       <div className="c-game-container">
-        <h2 className="c-status">{status}</h2>
+        <h2 className={"c-status " + winner }>{status}</h2>
         <div className="c-board">
           <div className="c-board__row first-row">
             {this.renderSquare(0)}
@@ -89,8 +94,10 @@ class Game extends React.Component {
           <h2 class="heading">To Do</h2>
           <ul>
             <li>Stop when game is won</li>
-            <li>Prevent clicking on alreay picked squares</li>
-            <li>Class swapping onClick</li>
+            <li><del>Prevent clicking on already picked squares</del></li>
+            <li><del>Class swapping onClick</del></li>
+            <li>Cleanup code, yikes</li>
+            <li>SASS</li>
           </ul>
         </div>
       </div>

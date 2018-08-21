@@ -22,6 +22,9 @@ body {
   text-align: center;
 }
 
+.c-status.X { color: #6299CB; }
+.c-status.O { color: #B64C59; }
+
 
 /* ------------------------------------------ BOARD */
 .c-board {
@@ -63,6 +66,10 @@ body {
 .c-square:focus {
   background: #807D7E;
   outline: none;
+}
+
+.c-square:disabled {
+  cursor: default;
 }
 
 
