@@ -44,6 +44,7 @@ body {
 }
 
 .c-square span {
+  color: white;
   font-size: 120px;
   position: absolute;
   left: -8px;
@@ -53,12 +54,15 @@ body {
   line-height: 1.25em;
 }
 
-.c-square:focus {
-  outline: none;
+.c-square.checked.X {
+  background: #6299CB;
 }
-
-.c-square:active {
-  background: #69747C;
+.c-square.checked.O {
+  background: #B64C59;
+}
+.c-square:focus {
+  background: #807D7E;
+  outline: none;
 }
 
 

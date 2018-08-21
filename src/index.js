@@ -5,7 +5,7 @@ import './index.css';
 
 function Square(props) {
   return (
-    <button className="c-square" onClick={props.onClick}>
+    <button className={"c-square " + props.clicked + " " + props.value } onClick={props.onClick}>
       <span>{props.value}</span>
     </button>
   );
@@ -17,13 +17,17 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
       xIsNext: true,
+      clicked: Array(9).fill('unchecked'),
     }
   }
 
   handleClick(i) {
     const squares = this.state.squares.slice();
+    const clicked = this.state.clicked.slice();
     squares[i] = this.state.xIsNext ? 'X' : 'O';
+    clicked[i] = this.state.clicked ? 'checked': 'unchecked';
     this.setState({
+      clicked: clicked,
       squares: squares,
       xIsNext: !this.state.xIsNext,
     });
@@ -32,6 +36,7 @@ class Board extends React.Component {
   renderSquare(i) {
     return (
       <Square
+        clicked={this.state.clicked[i]}
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
       />
